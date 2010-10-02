@@ -14,27 +14,18 @@
  * limitations under the License.
  */
 
-package com.googlecode.tcime;
+package com.android.boshiamy;
 
-import android.content.Context;
+class BoshiamyTable {
 
-/**
- * Zhuyin input method.
- */
-public class ZhuyinIME extends AbstractIME {
+  private BoshiamyTable() {
 
-  @Override
-  protected KeyboardSwitch createKeyboardSwitch(Context context) {
-    return new KeyboardSwitch(context, R.xml.zhuyin);
   }
-
-  @Override
-  protected Editor createEditor() {
-    return new ZhuyinEditor();
-  }
-
-  @Override
-  protected WordDictionary createWordDictionary(Context context) {
-    return new ZhuyinDictionary(context);
+  
+  protected static final String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ,[.'";
+  
+  public static boolean isLetter(char c)
+  {
+	  return letters.indexOf(c) > -1;
   }
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.googlecode.tcime;
+package com.android.boshiamy;
 
 import android.app.AlertDialog;
 import android.os.Bundle;

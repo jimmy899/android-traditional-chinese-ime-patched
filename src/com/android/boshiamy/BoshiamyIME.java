@@ -14,30 +14,35 @@
  * limitations under the License.
  */
 
-package com.googlecode.tcime;
+package com.android.boshiamy;
 
+import android.content.Context;
 import android.util.Log;
 
 /**
- * Extends Editor to compose by Boshiamy rules. 
+ * Zhuyin input method.
  */
-public class BoshiamyEditor extends Editor {
+public class BoshiamyIME extends AbstractIME {
+
+	private String TAG = "";
+	private boolean D = true;
+	
+  @Override
+  protected KeyboardSwitch createKeyboardSwitch(Context context) {
+	  TAG = this.getClass().getSimpleName();
+	  if (D) {
+		  Log.i(TAG, "BOSHIAMY Loaded\n");
+	  }
+    return new KeyboardSwitch(context, R.xml.boshiamy);
+  }
 
   @Override
-  public boolean doCompose(int keyCode) {
-	Log.i("i", "Boshiamy DeCompose");
-    char c = (char) keyCode;
-    if (!BoshiamyTable.isLetter(c)) {
-      return false;
-    }
+  protected Editor createEditor() {
+    return new BoshiamyEditor();
+  }
 
-    int maxLength = 4;
-    if (composingText.length() >= maxLength) {
-      // Handle the key-code with no-op.
-      return true;
-    }
-
-    composingText.append(c);
-    return true;
+  @Override
+  protected WordDictionary createWordDictionary(Context context) {
+    return new BoshiamyDictionary(context);
   }
 }

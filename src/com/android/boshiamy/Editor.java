@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.googlecode.tcime;
+package com.android.boshiamy;
 
 import android.inputmethodservice.Keyboard;
 import android.text.InputType;
