@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.googlecode.tcime;
+package com.android.boshiamy;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -49,21 +49,13 @@ public class SoftKeyboard extends Keyboard {
   public boolean isEnglish() {
     return id == R.xml.qwerty || id == R.xml.qwerty_for_boshiamy_en;
   }
-
-  public boolean isZhuyin() {
-    return id == R.xml.zhuyin;
-  }
-
-  public boolean isCangjie() {
-    return id == R.xml.cangjie;
-  }
   
   public boolean isBoshiamy() {
 	  return id == R.xml.boshiamy;
   }
 
   public boolean isChinese() {
-    return isZhuyin() || isCangjie() || isBoshiamy();
+    return isBoshiamy();
   }
 
   public boolean isNumberSymbol() {

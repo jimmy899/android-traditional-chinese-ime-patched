@@ -1,3 +1,4 @@
+package com.android.boshiamy;
 /*
  * Copyright 2010 Google Inc.
  *
@@ -14,7 +15,6 @@
  * limitations under the License.
  */
 
-package com.googlecode.tcime;
 
 import android.content.Context;
 import android.inputmethodservice.Keyboard;
@@ -35,7 +35,6 @@ public class SoftKeyboardView extends KeyboardView {
 
   private SoftKeyboard currentKeyboard;
   private boolean capsLock;
-  private boolean cangjieSimplified;
 
   private static Method invalidateKeyMethod;
   static {
@@ -76,24 +75,6 @@ public class SoftKeyboardView extends KeyboardView {
     if (canCapsLock()) {
       setShifted(capsLock || (caps != 0));
     }
-  }
-
-  private boolean canCangjieSimplified() {
-    // Simplified-cangjie can only be toggled on Cangjie keyboard.
-    return (currentKeyboard != null) && currentKeyboard.isCangjie();
-  }
-
-  public boolean toggleCangjieSimplified() {
-    if (canCangjieSimplified()) {
-      cangjieSimplified = !isShifted();
-      setShifted(cangjieSimplified);
-      return true;
-    }
-    return false;
-  }
-
-  public boolean isCangjieSimplified() {
-    return cangjieSimplified;
   }
 
   public boolean hasEscape() {

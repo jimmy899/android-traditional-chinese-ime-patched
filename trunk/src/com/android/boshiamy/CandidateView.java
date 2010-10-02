@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.googlecode.tcime;
+package com.android.boshiamy;
 
 import android.content.Context;
 import android.content.res.Resources;

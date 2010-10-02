@@ -19,15 +19,15 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Titles for IME  -->
-    <string name="ime_name">注音倉頡輸入法</string>
-    <string name="zhuyin_ime_name">注音輸入法</string>
-    <string name="cangjie_ime_name">倉頡輸入法</string>
+    <string name="ime_name">無蝦米輸入法</string>
+    
+    
     <string name="boshiamy_ime_name">無蝦米輸入法</string>
 
     <!-- Labels on soft keys -->
     <string name="label_english">英文</string>
     <string name="label_chinese">中文</string>
-    <string name="label_simplified">速成</string>
+    
     <string name="label_boshiamy_short">嘸</string>
 
     <!-- Preference settings -->
