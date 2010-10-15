@@ -32,6 +32,8 @@ import android.view.inputmethod.InputConnection;
 public abstract class AbstractIME extends InputMethodService implements 
     KeyboardView.OnKeyboardActionListener, CandidateView.CandidateViewListener {
 
+  private final String TAG = "AbstractIME";
+  private final boolean D = true;
   protected SoftKeyboardView inputView;
   private CandidatesContainer candidatesContainer;
   private KeyboardSwitch keyboardSwitch;
@@ -194,10 +196,16 @@ public abstract class AbstractIME extends InputMethodService implements
     }
     if (handleOption(primaryCode) || handleCapsLock(primaryCode)
         || handleEnter(primaryCode) || handleSpace(primaryCode)
-        || handleDelete(primaryCode) || handleComposing(primaryCode)) {
+        || handleDelete(primaryCode) ) {
       return;
     }
-    handleKey(primaryCode);
+    SoftKeyboard sk = (SoftKeyboard) keyboardSwitch.getCurrentKeyboard();
+    if (sk != null && sk.isChinese()) {
+	    if (handleComposing(primaryCode)) {
+	    	return;
+	    }
+    }
+	handleKey(primaryCode);    
   }
 
   public void onText(CharSequence text) {
